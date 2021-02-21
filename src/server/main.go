@@ -25,6 +25,8 @@ var (
 	c = counters{}
 	ct = []content_time{}
 	content = []string{"sports", "entertainment", "business", "education"}
+	prev_time = time.Time 
+	rate_limit = 5
 )
 
 func welcomeHandler(w http.ResponseWriter, r *http.Request) {
@@ -89,6 +91,9 @@ func statsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+/* 
+	rate limiter for stats handler
+*/
 func isAllowed() bool {
 	return true
 }
